@@ -1,0 +1,17 @@
+.column {
+  display: inline-block;
+  width: 45%;
+  margin-bottom: 5%;
+  margin-top: 10%;
+  font-family: "Georgia";
+}
+
+#secondColumn {
+  float: right;
+}
+
+@media only screen and (max-width: 750px) {
+  .column {
+    width: 100%;
+  }
+}

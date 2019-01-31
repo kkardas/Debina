@@ -1,0 +1,84 @@
+<div class="container-navigation">
+  <div class="container-nav" #logo
+       (click)="this.dataService.setSelectedHeader('')">
+    <div class="container-nav-img col-xs-12 col-sm-12 col-md-6">
+      <img src="/assets/logo.png"
+           class="container-nav-img-pic"
+           routerLink="/">
+    </div>
+    <div class="container-nav-phone col-xs-12 col-sm-6 col-md-3">
+      <span class="oi oi-phone container-nav-phone-number-icon">
+      </span>
+      <span class="container-nav-phone-number">
+        + 48 111 111 111
+      </span>
+    </div>
+    <div class="container-nav-map col-xs-12 col-sm-6 col-md-3">
+      <span class="oi oi-map-marker container-nav-map-address-icon">
+      </span>
+      <span class="container-nav-map-address">
+        Krościenko Wyżne <br>
+        ulica Parkowa 2
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="navbar navbar-dark navbar-expand-md">
+  <button (click)="toggleMobileMenu()" (clickOutside)="onClickedOutside()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent"
+       *ngIf="isMobileMenuOpened || isComputerMenuOpened">
+    <ul class="navbar-nav mr-auto">
+      <div *ngFor="let header of dataService.getHeaders()">
+        <ng-container [ngTemplateOutlet]='header.internalHeaders.length ? dropdownTemplate : singleTemplate'
+                      [ngTemplateOutletContext]="{header:header}">
+        </ng-container>
+      </div>
+    </ul>
+  </div>
+
+  <ng-template #dropdownTemplate let-header="header">
+    <li class="nav-item nav-item-lg dropdown active hidden-lg"
+        routerLink="/{{header.header}}"
+        (click)="this.dataService.setSelectedHeader(header.header)"
+        [class.dropdown-active]="this.dataService.getSelectedHeader() === header.header">
+      <a class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        {{header.header}}
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a *ngFor="let internalHeader of header.internalHeaders"
+           routerLink="/{{header.header}}/{{internalHeader | char | polishCharacters}}"
+           (click)="deletePropagation($event, header.header)"
+           class="dropdown-item">
+          {{internalHeader}}
+        </a>
+      </div>
+    </li>
+
+    <li class="nav-item nav-item-sm dropdown active"
+        routerLink="/{{header.header}}"
+        (click)="this.dataService.setSelectedHeader(header.header)"
+        [class.dropdown-active]="this.dataService.getSelectedHeader() === header.header">
+      <a class="nav-link">
+        {{header.header}}
+      </a>
+    </li>
+  </ng-template>
+
+  <ng-template #singleTemplate let-header="header">
+    <li class="nav-item dropdown active"
+        routerLink="/{{header.header}}"
+        (click)="this.dataService.setSelectedHeader(header.header)"
+        [class.dropdown-active]="this.dataService.getSelectedHeader() === header.header">
+      <a class="nav-link">
+        {{header.header}}
+      </a>
+    </li>
+  </ng-template>
+
+</div>
+

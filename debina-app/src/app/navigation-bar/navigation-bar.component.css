@@ -1,0 +1,254 @@
+.navbar-expand-md {
+  background: var(--main-green-color);
+  font-family: Georgia;
+  font-size: 14px;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: var(--lighter-main-green-color);
+  color: var(--ultra-dark-green-color);
+}
+
+.mr-auto {
+  margin-left: 15%;
+}
+
+.active {
+  color: lightgray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: transparent;
+  transition: 0.3s ease;
+}
+
+.container-hide {
+  display: none;
+}
+
+.container-nav-img-pic {
+  cursor: pointer;
+  float: left;
+  background-color: transparent;
+  height: 100px;
+}
+
+.container-navigation {
+  font-family: Georgia;
+  font-size: 14px;
+  letter-spacing: 0px;
+  max-width: 100%;
+  color: white;
+}
+
+.container-nav {
+  height: 100%;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+.container-nav-phone, .container-nav-map {
+  float: right;
+  margin-top: 35px;
+  color: var(--very-dark-green-color);
+  text-align: center;
+  height: inherit;
+  display: inline-block;
+}
+
+.container-nav-phone-number, .container-nav-map-address {
+  color: grey;
+  display: inline-block;
+  text-align: center;
+}
+
+.container-nav-phone-number, .container-nav-map-address-icon, .container-nav-phone-number-icon, .glyphicon {
+  font-size: 34px;
+}
+
+.container-nav-map-address {
+  font-size: 15px;
+}
+
+.navContainer {
+  padding-right: 15%;
+  background-color: var(--main-green-color);
+  width: 100%;
+  display: flex;
+  position: sticky;
+  padding-left: 15%;
+}
+
+.dropdown {
+  color: white;
+  transition: 0.3s ease;
+}
+
+.dropdown-active {
+  background-color: var(--lighter-main-green-color);
+  transition: 0.3s ease;
+  color: var(--very-dark-green-color);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0%;
+  top: 100%;
+  background-color: var(--nth-child-main-green-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  opacity: 3;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.dropdown-menu a:nth-child(2n) {
+  background-color: var(--active-main-green-color);
+}
+
+.dropdown-menu a:nth-child(2n + 1) {
+  background-color: var(--main-green-color);
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--lighter-main-green-color);
+  color: var(--very-dark-green-color);
+  transition: 0.3s ease;
+}
+
+.dropdown-menu a {
+  font-size: 14px;
+  font-family: "Georgia";
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: var(--main-green-color);
+}
+
+.nav-item-lg:hover > .dropdown-menu {
+  display: block;
+}
+
+.navbar-toggler-icon {
+  color: white;
+  font-size: 25px;
+}
+
+.navbar-toggler {
+  background: none;
+  border: none
+}
+
+.navbar {
+  z-index: 2;
+}
+
+@media only screen and (max-width: 1676px) {
+  .container-nav-phone-number, .container-nav-map-address-icon, .container-nav-phone-number-icon, .glyphicon {
+    font-size: 28px;
+  }
+
+  .container-nav-map-address {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 1420px) {
+  .container-nav-phone-number, .container-nav-map-address-icon, .container-nav-phone-number-icon, .glyphicon {
+    font-size: 24px;
+  }
+
+  .container-nav-map-address {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 1240px) {
+  .container-nav-phone-number, .container-nav-map-address-icon, .container-nav-phone-number-icon, .glyphicon {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1065px) {
+  .container-nav-phone-number, .container-nav-map-address-icon, .container-nav-phone-number-icon, .glyphicon {
+    font-size: 18px;
+  }
+
+  .mr-auto, .container-nav {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .container-nav-phone, .container-nav-map {
+    margin-top: 10px;
+    float: right;
+    text-align: center;
+    width: 100%;
+  }
+
+  .container-nav-phone-number, .container-nav-map-address-icon, .container-nav-phone-number-icon {
+    font-size: 20px;
+    margin: 0 auto;
+  }
+
+  .container-nav-map-address {
+    font-size: 12px;
+    margin: 0 auto;
+  }
+
+  .container-nav {
+    height: 100%;
+    margin: 0;
+  }
+
+  .container-nav-img {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+  }
+}
+
+@media only screen and (min-width: 777px) {
+  .nav-item {
+    display: inline-block;
+  }
+
+  .navbar-nav .nav-link,
+  .navbar-brand {
+    text-align: center;
+  }
+
+  .nav-item-sm {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 777px) {
+  .nav-item-lg {
+    display: none;
+  }
+}

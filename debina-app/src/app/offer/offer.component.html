@@ -1,0 +1,20 @@
+<div class="offer">
+  <div class="offer-header">
+    {{header}}
+  </div>
+  <div class="offer-container col-12 col-sm-12">
+    <ul class="offer-specific col-12 col-sm-12">
+      <li class="offer-specific-header col-12 col-sm-12"
+          *ngFor="let head of specificHeaders"
+          routerLink="/{{this.header}}/{{head | char | polishCharacters}}"
+          [class.offer-specific-header-active]="this.dataService.getSelectedSpecificHeader() === (head | char | polishCharacters)">
+        <a class="offer-specific-header-link">
+          {{head}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <p class="offer-text">
+    {{text}}
+  </p>
+</div>

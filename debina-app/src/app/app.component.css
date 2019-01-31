@@ -1,0 +1,14 @@
+footer {
+  border-top: 1px solid #c0c3ca;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  display: block;
+  z-index: 5;
+  background-color: white;
+  border-bottom: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--ultra-dark-green-color);
+}

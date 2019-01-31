@@ -1,0 +1,115 @@
+<div class="footer">
+  <div class="footer-form">
+    <p class="header">
+      Zarezerwuj termin wizyty
+    </p>
+
+    <form [formGroup]="mailForm" class="form" (ngSubmit)="onSubmit()">
+      <label for="name">
+        Imię i nazwisko pacjenta:
+      </label>
+      <input class="form-control" type="text" formControlName="name" required>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="name.errors.required">
+          Imię i nazwisko są wymagane
+        </div>
+      </div>
+
+      <label for="visitDay">
+        Preferowany termin wizyty:
+      </label>
+      <input class="form-control" type="date" formControlName="visitDay" required>
+      <div *ngIf="visitDay.invalid && (visitDay.dirty || visitDay.touched)"
+           class="alert alert-danger">
+        <div *ngIf="visitDay.errors.required">
+          Preferowana data wizyty jest wymagana
+        </div>
+        <div *ngIf="visitDay.errors.visitDay">
+          Podana data musi być z przyszłości
+        </div>
+      </div>
+
+      <label for="phoneNumber">
+        Telefon kontaktowy:
+      </label>
+      <input class="form-control" type="tel" formControlName="phoneNumber" required>
+
+      <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+           class="alert alert-danger">
+        <div *ngIf="phoneNumber.errors.required">
+          Numer telefonu jest wymagany
+        </div>
+      </div>
+
+      <label for="email">
+        Adres e-mail:
+      </label>
+      <input class="form-control" type="email" formControlName="email">
+      <div *ngIf="email.invalid && (email.dirty || email.touched) && email.value !== ''"
+           class="alert alert-danger">
+        <div *ngIf="email.errors.email">
+          Niepoprawny adres e-mail
+        </div>
+      </div>
+
+      <button type="submit"
+              class="btn btn-success"
+              [disabled]="!mailForm.valid">Wyślij</button>
+    </form>
+  </div>
+
+  <div class="footer-container col-12">
+    <div class="row col-12">
+      <span class="column col-lg-4 col-md-4 col-sm-4 col-12" id="first">
+        <img src="/assets/logo.png">
+        <p>
+          Zapraszamy na zabiegi stomatologiczne i kardiologiczne
+        </p>
+      </span>
+
+      <span class="column col-lg-4 col-md-4 col-sm-4 col-12" id="second">
+        <div class="menu">
+          <p class="title">
+            Nawigacja
+          </p>
+          <a class="item"
+             *ngFor="let header of dataService.getHeaders()"
+             routerLink="/{{header.header}}"
+             (click)="this.dataService.setSelectedHeader(header.header)">
+            {{header.header}}
+            <br>
+          </a>
+        </div>
+      </span>
+
+      <span class="column col-lg-4 col-md-4 col-sm-4 col-12" id="third">
+        <div class="title">
+          Zadzwoń umówić wizytę
+        </div>
+        <div class="oi oi-phone">
+          +48 111 111 111
+        </div>
+      </span>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #content let-modalDismiss="dismiss" let-modalClose="close">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Wysyłanie wiadomości</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalDismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <p>{{resultMessage}}</p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modalClose('Close click')">Close</button>
+  </div>
+</ng-template>
