@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {of} from "rxjs/index";
-import {Observable} from "rxjs/Rx";
-import {catchError, tap} from "rxjs/internal/operators";
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {of} from 'rxjs/index';
+import {Observable} from 'rxjs/Rx';
+import {catchError, tap} from 'rxjs/internal/operators';
 
 @Injectable()
 export class MailService {

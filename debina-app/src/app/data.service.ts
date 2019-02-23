@@ -32,7 +32,7 @@ export class DataService {
   }
 
   getHeaders() {
-    return Headers ;
+    return Headers;
   }
 
   getSpecificHeaders(mainHeader: string) {
